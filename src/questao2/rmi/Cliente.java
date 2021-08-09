@@ -18,7 +18,7 @@ public class Cliente {
         Scanner s = new Scanner(System.in);
         System.out.print("Nome: ");
         String nome = s.next();
-        System.out.print("Para enviar as mensagens, basta escrever e apertar enter: ");
+        System.out.println("Para enviar as mensagens, basta escrever e apertar enter: ");
 
         Thread leitura = new Thread() {
             public void run() {
@@ -54,7 +54,7 @@ public class Cliente {
                 try {
                     chat = (Chat) Naming.lookup(localizacao);
                     while(true) {
-                        chat.enviarMensagem(nome+": "+s.next());
+                        chat.enviarMensagem(nome+": "+s.nextLine());
                     }
                 } catch (NotBoundException | MalformedURLException | RemoteException e) {
                     e.printStackTrace();
