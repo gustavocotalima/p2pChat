@@ -12,8 +12,6 @@ import java.util.concurrent.Semaphore;
 public class Cliente {
 
     public static void main(String[] args) {
-        Semaphore semaforo = new Semaphore(1);
-
         String localizacao = "//localhost/Chat";
         Scanner s = new Scanner(System.in);
         System.out.print("Nome: ");
