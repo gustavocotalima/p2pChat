@@ -4,10 +4,10 @@ import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.ArrayList;
 
 public class Servidor extends UnicastRemoteObject implements Chat {
-    private ArrayList<String> mensagens = new ArrayList<String>();
+    private String ultimaMensagem = null;
+
 
     protected Servidor() throws RemoteException {
         super();
@@ -25,11 +25,11 @@ public class Servidor extends UnicastRemoteObject implements Chat {
 
     @Override
     public void enviarMensagem(String mensagem) throws RemoteException {
-        mensagens.add(mensagem);
+        ultimaMensagem = mensagem;
     }
 
     @Override
-    public ArrayList<String> lerMensagens() throws RemoteException {
-        return mensagens;
+    public String lerUltimaMensagem() throws RemoteException {
+        return ultimaMensagem;
     }
 }
